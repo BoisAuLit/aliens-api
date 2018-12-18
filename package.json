@@ -1,0 +1,39 @@
+{
+  "name": "extraterrestreapi",
+  "version": "1.0.0",
+  "description": "Un api pour les extraterrestres",
+  "main": "index.js",
+  "author": "Bohao LI",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev:build": "yarn run clean && webpack -w --mode development",
+    "dev": "cross-env NODE_ENV=development nodemon dist/index.bundle.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "express-validation": "^1.0.2",
+    "helmet": "^3.15.0",
+    "joi": "^14.3.0",
+    "mongoose": "^5.4.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "validator": "^10.9.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9",
+    "rimraf": "^2.6.2",
+    "webpack": "^4.27.1",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
