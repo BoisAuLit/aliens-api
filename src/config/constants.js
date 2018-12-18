@@ -1,5 +1,6 @@
 const devConfig = {
   MONGO_URL: 'mongodb://localhost:27017/test',
+  JWT_SECRET: 'this_is_a_jwt_secret'
 };
 
 const testConfig = {
