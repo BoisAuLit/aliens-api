@@ -1,5 +1,12 @@
 /* eslint-disable no-console */
 
+/**
+ * To be able to use the "import" keyword, we will have to
+ * use transpilers, that's why we installed babel.
+ * If we don't have babel, we will have to use old syntax
+ * like "var xxx = require('***')" which is quite ugly and limited
+ */
+
 import express from 'express';
 
 import constants from './config/constants';

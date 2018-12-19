@@ -1,38 +1,14 @@
 import mongoose, {Schema} from 'mongoose';
-import validator from 'validator';
 import {hashSync, compareSync} from 'bcrypt-nodejs';
 import jwt from 'jsonwebtoken';
 
-import {passwordReg} from './user.validation';
+import {passwordReg} from './alien.validation';
 import constants from '../../config/constants';
 
-
-const UserSchema = new Schema({
-  email: {
+const AlienSchema = new Schema({
+  login: {
     type: String,
-    unique: true,
-    required: [true, 'Email is required!'],
-    trim: true,
-    validate: {
-      validator(email) {
-        return validator.isEmail(email);
-      },
-      message: '{VALUE} is not a valid email'
-    }
-  },
-  firstName: {
-    type: String,
-    required: [true, 'First name is required!'],
-    trim: true,
-  },
-  lastName: {
-    type: String,
-    required: [true, 'Last name is required!'],
-    trim: true,
-  },
-  userName: {
-    type: String,
-    required: [true, 'Username is required!'],
+    required: [true, 'Login is required!'],
     unique: true,
     trim: true,
   },
@@ -48,9 +24,35 @@ const UserSchema = new Schema({
       message: '{VALUE} is not a valid password!',
     },
   },
+  name: {
+    type: String,
+    required: [true, 'Name is required!'],
+    trim: true,
+  },
+  age: {
+    type: Number,
+    required: [true, 'Age is required!'],
+    trim: true,
+    validate: {
+      validator(age) {
+        return Number.isInteger(age) && age > 0;
+      }
+    }
+  },
+  race: {
+    type: String,
+    required: [true, 'Race is required!'],
+    trim: true,
+  },
+  food: {
+    type: String,
+    required: [true, 'Food is required!'],
+    trim: true,
+  },
+
 });
 
-UserSchema.pre('save', function (next) {
+AlienSchema.pre('save', function (next) {
   if (this.isModified('password')) {
     this.password = this._hashPassword(this.password);
     return next();
@@ -59,7 +61,7 @@ UserSchema.pre('save', function (next) {
   return next();
 });
 
-UserSchema.methods = {
+AlienSchema.methods = {
   _hashPassword(password) {
     return hashSync(password);
   },
@@ -83,4 +85,4 @@ UserSchema.methods = {
   },
 };
 
-export default mongoose.model('Alien', UserSchema);
+export default mongoose.model('Alien', AlienSchema);
