@@ -85,7 +85,7 @@ function transformFilterObject(object) {
   if (!object)
     throw "The object cannot be empty!";
 
-  let result = {}
+  let result = {};
 
   for (let entry of Object.entries(object)) {
     if (entry[1].length > 0)
@@ -97,7 +97,7 @@ function transformFilterObject(object) {
 
 export async function filterAlien(req, res) {
   try {
-    
+
     let transformed_filter = transformFilterObject(req.body);
 
 

@@ -87,15 +87,6 @@ AlienSchema.methods = {
       food: this.food,
       race: this.race
     };
-  },
-  toItself() {
-    return {
-      login: this.login,
-      name: this.name,
-      age: this.age,
-      race: this.race,
-      food: this.food
-    };
   }
 };
 
