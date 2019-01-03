@@ -49,4 +49,4 @@ folder.
 
 ---
 
-#### PS: You can find the API test results in the "screenshots" folder.
+PS: You can find the API test results in the "screenshots" folder.
