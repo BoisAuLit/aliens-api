@@ -46,3 +46,7 @@ folder.
 
 * Step 1: `yarn dev:build`
 * Step 2: `yarn dev`
+
+---
+
+####PS: You can find the API test results in the "screenshots" folder.
