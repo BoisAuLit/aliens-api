@@ -1,38 +1,14 @@
 import mongoose, {Schema} from 'mongoose';
-import validator from 'validator';
 import {hashSync, compareSync} from 'bcrypt-nodejs';
 import jwt from 'jsonwebtoken';
 
-import {passwordReg} from './user.validation';
+import {passwordReg} from './admin.validation';
 import constants from '../../config/constants';
 
-
-const UserSchema = new Schema({
-  email: {
+const AdminSchema = new Schema({
+  login: {
     type: String,
-    unique: true,
-    required: [true, 'Email is required!'],
-    trim: true,
-    validate: {
-      validator(email) {
-        return validator.isEmail(email);
-      },
-      message: '{VALUE} is not a valid email'
-    }
-  },
-  firstName: {
-    type: String,
-    required: [true, 'First name is required!'],
-    trim: true,
-  },
-  lastName: {
-    type: String,
-    required: [true, 'Last name is required!'],
-    trim: true,
-  },
-  userName: {
-    type: String,
-    required: [true, 'Username is required!'],
+    required: [true, 'Login is required!'],
     unique: true,
     trim: true,
   },
@@ -50,7 +26,7 @@ const UserSchema = new Schema({
   },
 });
 
-UserSchema.pre('save', function (next) {
+AdminSchema.pre('save', function (next) {
   if (this.isModified('password')) {
     this.password = this._hashPassword(this.password);
     return next();
@@ -59,28 +35,32 @@ UserSchema.pre('save', function (next) {
   return next();
 });
 
-UserSchema.methods = {
+AdminSchema.methods = {
   _hashPassword(password) {
     return hashSync(password);
   },
-  authenticateUser(password) {
+  authenticateAdmin(password) {
     return compareSync(password, this.password)
   },
   createToken() {
     return jwt.sign(
       {
         _id: this._id,
+        type: 'admin'
       },
       constants.JWT_SECRET,
     );
   },
   toJSON() {
+
     return {
       _id: this._id,
-      userName: this.userName,
+      login: this.login,
       token: `JWT ${this.createToken()}`,
     };
   },
 };
 
-export default mongoose.model('Alien', UserSchema);
+export default mongoose.model('Admin', AdminSchema);
+
+

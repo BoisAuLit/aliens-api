@@ -65,13 +65,14 @@ AlienSchema.methods = {
   _hashPassword(password) {
     return hashSync(password);
   },
-  authenticateUser(password) {
+  authenticateAlien(password) {
     return compareSync(password, this.password)
   },
   createToken() {
     return jwt.sign(
       {
         _id: this._id,
+        type: 'alien'
       },
       constants.JWT_SECRET,
     );
@@ -79,10 +80,23 @@ AlienSchema.methods = {
   toJSON() {
     return {
       _id: this._id,
-      userName: this.userName,
+      login: this.login,
       token: `JWT ${this.createToken()}`,
+      name: this.name,
+      age: this.age,
+      food: this.food,
+      race: this.race
     };
   },
+  toItself() {
+    return {
+      login: this.login,
+      name: this.name,
+      age: this.age,
+      race: this.race,
+      food: this.food
+    };
+  }
 };
 
 export default mongoose.model('Alien', AlienSchema);

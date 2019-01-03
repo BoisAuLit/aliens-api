@@ -5,10 +5,12 @@ const devConfig = {
 
 const testConfig = {
   MONGO_URL: 'mongodb://localhost:27017/test',
+  JWT_SECRET: 'this_is_a_jwt_secret'
 };
 
 const prodConfig = {
   MONGO_URL: 'mongodb://localhost:27017/test',
+  JWT_SECRET: 'this_is_a_jwt_secret'
 };
 
 const defaultConfig = {

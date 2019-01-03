@@ -9,11 +9,11 @@ import Joi from 'joi';
 export const passwordReg = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
 export default {
-  signupAlien: {
+  signup: {
     login: Joi.string().required(),
     password: Joi.string().regex(passwordReg).required(),
     name: Joi.string().required(),
-    age: Joi.integer().required(),
+    age: Joi.number().integer().positive().required(),
     race: Joi.string().required(),
     food: Joi.string().required(),
   }
