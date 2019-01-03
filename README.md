@@ -39,3 +39,10 @@ Import the "alien_api.json" file to postman.
 If you want to insert many aliens into the database for testing,
 you can any one of the script files in the "python_scripts"
 folder.
+
+---
+
+### How to run the API:
+
+* Step 1: `yarn dev:build`
+* Step 2: `yarn dev`
