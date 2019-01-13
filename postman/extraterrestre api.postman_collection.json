@@ -40,6 +40,32 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "login as first alien 1 to test the friend request functionality",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/aliens/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"aliens",
+										"login"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
@@ -85,6 +111,241 @@
 										"profile",
 										"modify"
 									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show alien_info \"first_alien_1\"",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "follower / followee",
+					"item": [
+						{
+							"name": "follow another alien",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YzM5YjcwNzZmOWU1ODg2NTg0YWQ3NGYiLCJ0eXBlIjoiYWxpZW4iLCJpYXQiOjE1NDcyOTA4NDF9.fFLGfNtTRn6RIY2rS67rkWqriVrzknpJaaboZxchIJY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/aliens-logged-in/follow/5c1a71bcb5e51017be8b2136",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"aliens-logged-in",
+										"follow",
+										"5c1a71bcb5e51017be8b2136"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unfollow another alien",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YzM5YjcwNzZmOWU1ODg2NTg0YWQ3NGYiLCJ0eXBlIjoiYWxpZW4iLCJpYXQiOjE1NDcyOTA4NDF9.fFLGfNtTRn6RIY2rS67rkWqriVrzknpJaaboZxchIJY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/aliens-logged-in/follow/5c1a71bcb5e51017be8b2136",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"aliens-logged-in",
+										"follow",
+										"5c1a71bcb5e51017be8b2136"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "friends",
+					"item": [
+						{
+							"name": "show friend requests",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "send friend request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/aliens-logged-in/send-friend-request/5c1a71bcb5e51017be8b2136",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"aliens-logged-in",
+										"send-friend-request",
+										"5c1a71bcb5e51017be8b2136"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accept friend request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/aliens-logged-in/accept-freind-request/5c1a71bcb5e51017be8b2136",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"aliens-logged-in",
+										"accept-freind-request",
+										"5c1a71bcb5e51017be8b2136"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "break up with another alien (stop being friends with)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "show followers / following / friends info",
+					"item": [
+						{
+							"name": "show followers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show followings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show friends",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": ""
 								}
 							},
 							"response": []
